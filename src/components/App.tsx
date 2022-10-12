@@ -1,13 +1,12 @@
-import * as React from "react";
-import "./../assets/scss/App.scss";
+import React from "react";
+import "../assets/scss/App.scss";
+import reactLogo from "assets/img/react_logo.svg";
 
-const reactLogo = require("./../assets/img/react_logo.svg");
-
-const App = () => (
+const App: React.FC = () => (
   <div className="app">
     <h1>Hello World!</h1>
     <p>Foo to the barz</p>
-    <img src={reactLogo.default} height="480" />
+    <img src={reactLogo} height="480" />
   </div>
 );
 
