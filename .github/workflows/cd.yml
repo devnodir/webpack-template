@@ -12,10 +12,10 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+        host: asiapay.uz
+        username: user
+        password: O4nftq7n
+        port: 22
         script: cp -R dist/* /home/user/www/server.asiapay.uz/
-        
+
 
