@@ -16,4 +16,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: 
+        script: cp -R dist/* /home/user/www/server.asiapay.uz/
+
