@@ -3,6 +3,8 @@ name: React CD
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -16,6 +18,8 @@ jobs:
         username: user
         password: O4nftq7n
         port: 22
-        # script: cp -R dist/* /home/user/www/server.asiapay.uz/
+        script: |
+         cd /home/user/www/server.asispay.uz
+         git pull origin master
 
 
