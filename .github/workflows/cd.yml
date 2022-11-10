@@ -16,6 +16,6 @@ jobs:
         username: user
         password: O4nftq7n
         port: 22
-        script: cp -R dist/* /home/user/www/server.asiapay.uz/
+        # script: cp -R dist/* /home/user/www/server.asiapay.uz/
 
 
