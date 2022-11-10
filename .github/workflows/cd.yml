@@ -19,7 +19,6 @@ jobs:
         password: O4nftq7n
         port: 22
         script: |
-         cd /home/user/www/server.asispay.uz
-         git pull origin master
+         cd /home/user/www/server.asiapay.uz
 
 
