@@ -3,26 +3,18 @@ name: Deploy
 on:
   push:
     branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
-  build:
+  deploy:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
-      - uses: actions/checkout@v2
-        name: Check out repository
-      - uses: actions/setup-node@v1
-        name: Set up Node.js
-        with:
-          node-version: 18.x
-          cache: yarn
-      - run-name: Install dependencies
       - run: yarn install
-      - run-name: Test project
+        name: Install dependencies
       - run: yarn test
-      - run-name: Build project
+        name: Test project
       - run: yarn build
-      - run-name: Build project
+        name: Build project
       - run: cp -R dist/* /home/user/www/server.asiapay.uz/
+        name: Deploy to server
