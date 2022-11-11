@@ -18,12 +18,16 @@ jobs:
         with:
           node-version: 18.x
           cache: yarn
-      - run: |
-          echo "Install dependencies"
-          yarn install
-          echo "Test project"
-          yarn test
-          echo "Build project"
-          yarn build
-          echo "Deploy project"
+      - run: yarn install
+      - run: yarn test
+      - run: yarn build
+      - run:
           cp -R dist/* /home/user/www/server.asiapay.uz/
+          # echo "Install dependencies"
+          # yarn install
+          # echo "Test project"
+          # yarn test
+          # echo "Build project"
+          # yarn build
+          # echo "Deploy project"
+          # cp -R dist/* /home/user/www/server.asiapay.uz/
