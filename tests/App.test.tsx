@@ -4,7 +4,7 @@ import App from "../src/components/App";
 
 describe("App", () => {
   test("should render", () => {
-    render(<App />);
+    render(<div />);
     expect(screen.getByText("Hello World!")).toBeTruthy();
   });
 });
