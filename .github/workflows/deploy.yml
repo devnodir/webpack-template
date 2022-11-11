@@ -7,11 +7,9 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-
     strategy:
       matrix:
         node-version: [18.x]
-
     steps:
       - uses: actions/checkout@v2
         name: Check out repository
@@ -20,7 +18,11 @@ jobs:
         with:
           node-version: 18.x
           cache: yarn
-      - run: |
-          yarn install
-          yarn build
-          cp -R dist/* /home/user/www/server.asiapay.uz/
+        name: Install dependencies  
+      - run: yarn install
+        name: Test project
+      - run: yarn test
+        name: Build project
+      - run: yarn build
+        name: Deploy project
+      - run: cp -R dist/* /home/user/www/server.asiapay.uz/
