@@ -1,4 +1,4 @@
-name: React CI/CD
+name: Deploy
 
 on:
   push:
@@ -6,22 +6,21 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+
     strategy:
       matrix:
         node-version: [18.x]
+
     steps:
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v2
+        name: Check out repository
+      - uses: actions/setup-node@v1
+        name: Set up Node.js
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            git clone git@github.com:devnodir/webpack-template.git github 
-            cd github
-            yarn install
-            yarn build
-            cp -R dist/* /home/user/www/server.asiapay.uz/
-            rm -rf /home/user/github
+          node-version: 18.x
+          cache: yarn
+      - run: |
+          yarn install
+          yarn build
+          cp -R dist/* /home/user/www/server.asiapay.uz/
